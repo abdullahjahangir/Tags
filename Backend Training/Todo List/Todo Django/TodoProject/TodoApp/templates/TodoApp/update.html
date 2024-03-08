@@ -1,0 +1,27 @@
+{% extends "TodoApp/base.html" %}
+{% block body%}
+    <div class="row custom-row my-1 align-items-center">
+        <h3 class='text-center'>Update Todo</h3>
+        <form action="{% url 'todo_update' todo.id %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-info mb-2">Update</button>
+        </form>
+        {% comment %} <form action="{% url 'todo_detail' todo.id %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="Content">Content</label><br>
+                <textarea name="content" class="form-control" id="Content" rows=5 required>{{ todo.content }}</textarea>
+            </div>
+            <div>
+                {% if todo.checked %}
+                    <input type="checkbox" id="is_checked" name="is_checked" checked>
+                {% else %}
+                    <input type="checkbox" id="is_checked" name="is_checked">
+                {% endif %}
+                <label for="is_checked">is checked?</label><br>
+            </div>
+            <button type="submit" class="btn btn-info mb-2">Update</button>
+        </form>  {% endcomment %}
+    </div>
+{% endblock body%}

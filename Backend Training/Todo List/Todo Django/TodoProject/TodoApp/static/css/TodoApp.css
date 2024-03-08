@@ -1,0 +1,31 @@
+#board{
+    min-height: 200px;
+    max-height: 500px;
+    padding: 10px;
+    background-color: #e2e1e1 ;
+    padding: 10px;
+    border: 2px solid black;
+    overflow-y: auto; 
+}
+.custom-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.custom-col {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+.todo{
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.btn{
+    border-radius: 15px;
+    color: white;
+}
+.strikethrough {
+    text-decoration: line-through;
+}

@@ -1,0 +1,41 @@
+{% extends "TodoApp/base.html" %}
+{% block body%}
+    <h3 class='text-center my-2'>Todo App</h3>
+    <div class="row mx-0 my-1 align-items-center">
+        <form action="{% url 'todo_create' %}" method="POST" class="d-inline-flex flex-row justify-content-around align-items-center p-0">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mb-2">Add</button>
+        </form>
+        {% comment %} <form action="{% url 'todo_list' %}" method="POST" class="d-inline-flex flex-row justify-content-around align-items-center p-0">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mb-2">Add</button>
+        </form> {% endcomment %}
+    </div>
+    <div id="todo-list" class="my-2">
+        <hr>
+        <span class="text-secondary">Todo List</span>
+        {% for todo in todos %}
+            <div class="row mx-0 rounded p-2 my-2 bg-light">
+                <div class="col-9 mx-0 p-0">
+                    {% if todo.checked %}
+                        <input type="checkbox" id="complete" name="complete" checked disabled>
+                        <span class="strikethrough"><strike>{{ todo.content }}</strike></span>
+                    {% else %}
+                        <input type="checkbox" id="complete" name="complete" disabled>
+                        <span>{{ todo.content }}</span>
+                    {% endif %}
+                </div>
+                <div class="col mx-0 p-0">
+                    <a href="{% url 'todo_update' todo.id %}" class="btn btn-warning m-1">Edit</a>
+                    {% comment %} <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger m-1">Delete</a> {% endcomment %}
+                    <form action="{% url 'todo_delete' todo.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock body %}
