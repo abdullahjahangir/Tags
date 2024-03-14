@@ -1,0 +1,15 @@
+1- commenting practice
+2- define return types of every function
+3- static method -> run time
+4- matrix.py update the core structure More Modular Approach
+5- lookinto pprint tool
+6- fine name convention, python uses snake case naming convention
+7- follow best practice by using chat gpt to follow best python coding
+practices
+8- import naming conventiond
+9- check gitignore format for python
+10- dont give secrect resouce to git. have it in seperate file
+11- syncronous 
+
+
+django project directory  structure
